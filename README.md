@@ -1,5 +1,5 @@
 # ps-scripts-update-envs-from-pam
-[for GitLab CI]: Windows Powershell scripts for updating Enviroment Varialbles (*.json) from gitlab ENVS by GitLab-CI pipeline.
+Windows Powershell scripts for updating Enviroment Varialbles (*.json).
 ---
 
 - *Arguments:*
@@ -8,12 +8,17 @@
 
   - `restart`: 1 or 0. Set 1 if restart required.
 
-- *commandline:*
+- *Command line:*
 
    - `powershell -Command .\configure.ps1 -config config1.json, config2.json 1`
 
 - *configuration example file:*
   - [example.json](/example.json)
 
+- GitLab CI (NOT GitHub):
+  - To use GitLab CI you need to store project as GitLab repository.
+  - You can use GitLab-CI pipeline to run script. Just see and edit [gitlab-ci.yaml](/.gitlab-ci.yaml)
+  - You should configure gitlab-runner for your project at your server. [Tutorial](https://docs.gitlab.com/runner/install/windows.html)
+  - You can store enviroment configs in GitLab ENVS (set type "file" and place filled [example.json](/example.json) there.
 ---
 You can use this code at your own risk.

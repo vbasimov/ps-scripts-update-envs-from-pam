@@ -1,6 +1,11 @@
 # ps-scripts-update-envs-from-pam
-Windows Powershell scripts for updating Enviroment Varialbles (*.json).
----
+Windows Powershell scripts for updating Enviroment Varialbles (*.json)
+
+![ps](https://img.shields.io/badge/Powershell-2CA5E0?style=for-the-badge&logo=powershell&logoColor=white)
+![win](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![gitlab](https://img.shields.io/badge/GitLab-330F63?style=for-the-badge&logo=gitlab&logoColor=white)
+
+
 
 - *Arguments:*
 

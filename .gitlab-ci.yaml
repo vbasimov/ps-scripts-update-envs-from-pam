@@ -1,0 +1,49 @@
+stages:
+  - update-credentials
+
+variables:
+  BASEDIRECTORY: "c:/"
+  DIRECTORY: "configuration-scripts/"
+  concreteConfigs: ""  # нужно переопределить в каждом jobe
+
+
+#############################
+######   base update   ######
+#############################
+.base-update:
+  stage: update-credentials
+  script:
+    - cd ${BASEDIRECTORY}
+    - |
+      if (Test-Path ${DIRECTORY}) {
+          cd ${DIRECTORY};
+          git checkout .;
+          git pull https://deploy-token-N:${DEPLOY_TOKEN}@<git-repo-pass-here>;
+      } else {
+          git clone https://deploy-token-N:${DEPLOY_TOKEN}@<git-repo-pass-here>;
+          cd ${DIRECTORY}
+      }
+- powershell -Command .\configure.ps1 -config $concreteConfigs $restart
+  only:
+    - master
+
+
+################################################
+######  windows sesrvers GROUP 1 update   ######
+################################################
+.update-srv-group-01:
+  extends: .base-update
+  environment:
+    name: srv-group-1
+
+
+#############################
+###### concrete update ######
+#############################
+server-name-01:
+  extends: .update-srv-group-01
+  tags:
+    - config-srv-group-01
+  before_script:
+    - $concreteConfigs = "${CommonConfig}, ${ConcreteConfigGroup1}"
+

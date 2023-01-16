@@ -1,0 +1,11 @@
+{
+    "env": {
+        "<ENVIRONMENT_NAME>": {
+            "token": "00000000-aaaa-bbbb-cccc-12345qwertyx",
+            "secretName": "<SECRET_NAME>",
+            "secretPath": "<SECRET_PATH>",
+            "jobUser": true
+        }
+    }
+}
+
